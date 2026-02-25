@@ -11,7 +11,7 @@ abstract class SupportModule {
 
     @Binds
     abstract fun provideMyInterface(
-//        mClass: MyClassFlavourless
-        mClass: MyClass
+        mClass: MyClassFlavourless
+//        mClass: MyClass
     ): MyInterface
 }
