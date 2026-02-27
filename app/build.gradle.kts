@@ -1,11 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.ksp)
+    kotlin("android")
+//    alias(libs.plugins.ksp)
+    kotlin("kapt")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
+    }
     namespace = "com.zaptec.test.hiltinject"
     compileSdk {
         version = release(36) {
@@ -68,5 +75,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+//    ksp(libs.hilt.compiler)
+//    annotationProcessor(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 }
